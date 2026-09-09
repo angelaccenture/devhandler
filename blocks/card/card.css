@@ -183,3 +183,55 @@
     box-shadow: none;
   }
 }
+
+/* ── Icon variant ─────────────────────────────────────────────────────────────
+   Microsoft.com "Quick links" store row: a small icon/thumbnail above a short
+   link label. Flat (no card chrome), centered, compact. */
+.card.icon {
+  box-shadow: none;
+  background-color: initial;
+
+  .card-inner {
+    grid-template-rows: auto auto;
+    justify-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .card-picture-container {
+    padding-bottom: 0;
+    width: 64px;
+    height: 64px;
+
+    picture {
+      position: static;
+      opacity: 1;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+  }
+
+  .card-content-container {
+    padding: 0;
+    text-align: center;
+  }
+
+  a {
+    color: light-dark(var(--color-dark), var(--color-light));
+    font-size: var(--body-font-size-s);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
