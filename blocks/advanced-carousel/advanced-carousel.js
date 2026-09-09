@@ -111,6 +111,9 @@ export default function init(el) {
     if (sibling.querySelector('.advanced-carousel, .advanced-tabs')) break;
 
     sibling.classList.add('carouselSection');
+    // Strip any leftover section-metadata block from the absorbed panel so its
+    // raw key/value text (e.g. "style"/"container") doesn't render inside the slide.
+    sibling.querySelectorAll('.section-metadata').forEach((sm) => sm.remove());
     sibling.id = `carouselpanel-${instanceId}-${carouselPanels.length + 1}`;
     sibling.role = 'tabpanel';
     sibling.setAttribute('aria-roledescription', 'slide');
