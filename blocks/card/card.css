@@ -83,3 +83,103 @@
     }
   }
 }
+
+/* ── Product variant ──────────────────────────────────────────────────────────
+   Microsoft.com product tile: full-bleed image on top, title + short copy,
+   a text CTA link at the bottom. Light surface, subtle lift on hover. */
+.card.product {
+  --spacing-default: var(--spacing-l);
+
+  background-color: light-dark(var(--color-light), var(--color-gray-900));
+  border-radius: 8px;
+
+  .card-picture-container {
+    padding-bottom: 66%;
+  }
+
+  .card-content-container {
+    :first-child {
+      font-size: var(--body-font-size-l);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+    }
+
+    p {
+      color: light-dark(var(--color-gray-700), var(--color-gray-200));
+      font-size: var(--body-font-size-s);
+    }
+  }
+
+  .card-cta-container {
+    justify-content: start;
+
+    a {
+      color: var(--color-blue-600);
+      font-weight: var(--font-weight-bold);
+      text-decoration: none;
+    }
+
+    a::after {
+      content: " ›";
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ── Feature variant ──────────────────────────────────────────────────────────
+   "Get to know AI and Copilot" story card: image top, heading, longer copy,
+   and a solid button CTA. Flat surface, sits inside a section grid. */
+.card.feature {
+  --spacing-default: var(--spacing-l);
+
+  box-shadow: none;
+  background-color: light-dark(var(--color-light), var(--color-gray-900));
+
+  .card-picture-container {
+    padding-bottom: 56.25%;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .card-content-container {
+    padding-inline: 0;
+
+    :first-child {
+      font-size: var(--body-font-size-m);
+      font-weight: var(--font-weight-bold);
+    }
+
+    p {
+      color: light-dark(var(--color-gray-700), var(--color-gray-200));
+      font-size: var(--body-font-size-s);
+      line-height: 1.5;
+    }
+  }
+
+  .card-cta-container {
+    padding-inline: 0;
+    justify-content: start;
+
+    a {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--color-blue-600);
+      color: var(--color-light);
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: var(--body-font-size-s);
+    }
+
+    a:hover {
+      background: var(--color-blue-700, #004bc0);
+    }
+  }
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

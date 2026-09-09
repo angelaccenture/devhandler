@@ -68,6 +68,10 @@
   --spacing-s: 8px;
   --spacing-xs: 4px;
 
+  /* font weights (used by ported blocks: carousel, banner) */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
   /* color schemes */
   color-scheme: light dark;
 

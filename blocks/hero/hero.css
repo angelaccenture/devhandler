@@ -223,3 +223,79 @@
     }
   }
 }
+
+/* ── AI variant ───────────────────────────────────────────────────────────────
+   Microsoft.com evergreen hero. Styled against the DOM hero.js actually produces:
+   centered .hero-foreground with .fg-text; greeting is .hero-heading; the
+   Personal/Business toggle is an authored <ul>; the ask-bar is an authored
+   blockquote; the suggestion chips are a paragraph of links. Visual-only. */
+.hero.ai {
+  --hero-ai-blue: var(--color-blue-600, #0058e4);
+
+  background: linear-gradient(180deg, light-dark(#f2f2f5, #1b1b1b) 0%, light-dark(#fff, #111) 100%);
+
+  .hero-foreground {
+    max-width: 760px;
+    margin-inline: auto;
+    padding-block: var(--spacing-xxl);
+    text-align: center;
+  }
+
+  .fg-text {
+    align-items: center;
+  }
+
+  .hero-heading {
+    font-size: var(--body-font-size-xxl);
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* Personal / Business toggle — authored as a 2-item list */
+  ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    margin: var(--spacing-m) auto;
+    background: light-dark(var(--color-gray-100), var(--color-gray-800));
+    border-radius: 999px;
+  }
+
+  ul li {
+    padding: 6px 20px;
+    border-radius: 999px;
+    font-size: var(--body-font-size-s);
+    cursor: pointer;
+  }
+
+  ul li:first-child {
+    background: var(--hero-ai-blue);
+    color: var(--color-light);
+  }
+
+  /* AI ask bar — authored as a blockquote, styled as an input affordance */
+  blockquote {
+    display: block;
+    max-width: 640px;
+    margin: var(--spacing-m) auto var(--spacing-s);
+    padding: 12px 20px;
+    border: 1px solid var(--hero-ai-blue);
+    border-radius: 999px;
+    color: light-dark(var(--color-gray-500), var(--color-gray-300));
+    background: light-dark(var(--color-light), var(--color-gray-900));
+    text-align: start;
+    font-style: normal;
+  }
+
+  /* suggestion chips — the paragraph of links after the bar */
+  p:has(a) a {
+    display: inline-block;
+    margin: var(--spacing-xs);
+    padding: 6px 16px;
+    border: 1px solid light-dark(var(--color-gray-300), var(--color-gray-600));
+    border-radius: 999px;
+    font-size: var(--body-font-size-xs);
+    text-decoration: none;
+    color: var(--hero-ai-blue);
+  }
+}
