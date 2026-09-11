@@ -246,7 +246,7 @@
   }
 
   .hero-heading {
-    color: light-dark(var(--color-dark), var(--color-light));
+    color: var(--color-purple-700);
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: var(--font-weight-bold);
     line-height: 1.1;

@@ -61,7 +61,7 @@
   font-size: 1.125rem; /* 18px */
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
-  color: var(--banner-color);
+  color: var(--color-purple-700);
 }
 
 .banner .banner-content p {

@@ -345,6 +345,7 @@ h5,
 h6 {
   font-weight: 600;
   line-height: var(--heading-line-height);
+  color: var(--color-purple-700);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
