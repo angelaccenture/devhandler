@@ -246,8 +246,10 @@
   }
 
   .hero-heading {
-    font-size: var(--body-font-size-xxl);
+    color: light-dark(var(--color-dark), var(--color-light));
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: var(--font-weight-bold);
+    line-height: 1.1;
   }
 
   /* Personal / Business toggle — authored as a 2-item list */
