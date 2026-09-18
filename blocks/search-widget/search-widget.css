@@ -1,0 +1,108 @@
+/* search-widget — MD Anderson search panel (heading + search field + browse link).
+   Values from live computed styles: 36px serif heading, 70px gray input field
+   (#d0d0ce) with left padding for the search icon, red browse link. */
+.search-widget {
+  --search-input-bg: #d0d0ce;      /* rgb(208,208,206) */
+  --search-input-text: #605d5d;    /* rgb(96,93,93) */
+  --search-icon-color: var(--color-mda-red);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.search-widget .search-widget-title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem; /* ~28px mobile; up to 36px desktop below */
+  font-weight: var(--font-weight-regular);
+  color: var(--color-headings);
+  text-align: center;
+}
+
+/* Section-heading icon — an 88px brand-colored circle with a white glyph,
+   sitting above the title. Matches the live site's fa-stack circle icons.
+   Color set by an author variant class (purple | lightblue | red | green);
+   defaults to MD Anderson red. Rendered as a pure pseudo-element (no extra
+   markup, no icon-font dependency): circle = background-color, glyph = a
+   white inline-SVG background image. Color set on .search-widget above. */
+.search-widget.purple { --search-icon-color: var(--color-mda-purple); }
+.search-widget.lightblue { --search-icon-color: var(--color-mda-lightblue); }
+.search-widget.green { --search-icon-color: var(--color-mda-green); }
+
+.search-widget .search-widget-title::before {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin-bottom: var(--spacing-s);
+  margin-inline: auto;
+  border-radius: 50%;
+  background-color: var(--search-icon-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 44px 44px;
+
+  /* white magnifier glyph */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+}
+
+.search-widget .search-widget-field {
+  position: relative;
+}
+
+/* Magnifying-glass accent via pseudo-element — no extra markup. */
+.search-widget .search-widget-field::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%) rotate(-45deg);
+  border: 2px solid var(--search-input-text);
+  border-radius: 50%;
+  box-shadow: 0 10px 0 -7px var(--search-input-text); /* the handle */
+  pointer-events: none;
+}
+
+.search-widget .search-widget-input {
+  width: 100%;
+  height: 56px;
+  padding: 1px 12px 1px 38px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--search-input-bg);
+  color: var(--search-input-text);
+  font-family: var(--font-family);
+  font-size: 1.125rem; /* 18px */
+
+  &::placeholder {
+    color: var(--search-input-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus, var(--color-mda-red));
+    outline-offset: 2px;
+  }
+}
+
+.search-widget .search-widget-link a {
+  color: var(--color-link);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (width >= 900px) {
+  .search-widget .search-widget-title {
+    font-size: 2.25rem; /* 36px */
+  }
+
+  .search-widget .search-widget-input {
+    height: 70px;
+  }
+}

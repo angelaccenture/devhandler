@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "devhandler": {
+      "previewOrg": "angelaccenture",
+      "previewSite": "devhandler",
+      "contentHostUrl": "https://content.da.live/angelaccenture/devhandler/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

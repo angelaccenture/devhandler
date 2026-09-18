@@ -1,0 +1,236 @@
+{
+  "templates": [
+    {
+      "name": "microsoft-teams",
+      "urls": [
+        "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software?ms.url=microsoftcomteams"
+      ],
+      "representativeUrl": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software?ms.url=microsoftcomteams",
+      "description": "Microsoft Teams group-chat-software marketing page (OneCloud 'reimagine' system). Announcement band, AI hero, Ask Microsoft assistant bar, featured-news 3-up cards, tabbed Solutions with feature accordions, tabbed Plans with a promo banner and plan-card grid, customer-stories carousel, get-started CTA with audience cards, social follow row, and legal footnotes.",
+      "urlPattern": "/en-us/microsoft-teams/*",
+      "blocks": [
+        {
+          "name": "banner announcement",
+          "instances": [
+            "div.announcement"
+          ]
+        },
+        {
+          "name": "hero ai",
+          "instances": [
+            ".section-master--blade-hero-slim"
+          ]
+        },
+        {
+          "name": "banner ask",
+          "instances": [
+            ".block-feature.block-feature--align-list"
+          ]
+        },
+        {
+          "name": "card news",
+          "instances": [
+            "#Featured-news .three-up-cards.layout--cols-3"
+          ]
+        },
+        {
+          "name": "advanced-tabs solutions",
+          "instances": [
+            "#Solutions .tabs-pill-bar"
+          ]
+        },
+        {
+          "name": "advanced-accordion feature",
+          "instances": [
+            "#Solutions .ocr-accordion"
+          ]
+        },
+        {
+          "name": "advanced-tabs plans",
+          "instances": [
+            "#Products-and-services .tabs-pill-bar"
+          ]
+        },
+        {
+          "name": "banner plan",
+          "instances": [
+            "#Products-and-services .block-feature.block-feature--xs"
+          ]
+        },
+        {
+          "name": "card plan",
+          "instances": [
+            "#Products-and-services .card-grid"
+          ]
+        },
+        {
+          "name": "advanced-carousel stories",
+          "instances": [
+            "#Customer-stories .carousel"
+          ]
+        },
+        {
+          "name": "banner cta",
+          "instances": [
+            ".section-master:has(#Get-started)"
+          ]
+        },
+        {
+          "name": "card audience",
+          "instances": [
+            "#Get-started .three-up-cards.layout--cols-4"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-0-announcement",
+          "name": "Announcement band",
+          "selector": [
+            "div.announcement"
+          ],
+          "style": "dark-ignite-banner",
+          "blocks": [
+            "banner announcement"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-1-hero",
+          "name": "Hero",
+          "selector": [
+            ".section-master--blade-hero-slim"
+          ],
+          "style": null,
+          "blocks": [
+            "hero ai"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-ask",
+          "name": "Ask Microsoft assistant bar",
+          "selector": [
+            ".section-master:has(.block-feature--align-list)"
+          ],
+          "style": "light-neutral",
+          "blocks": [
+            "banner ask"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3-featured-news",
+          "name": "Featured news",
+          "selector": [
+            "#Featured-news",
+            ".section-master:has(.three-up-cards.layout--cols-3)"
+          ],
+          "style": "light",
+          "blocks": [
+            "card news"
+          ],
+          "defaultContent": [
+            "#Featured-news .block-heading__eyebrow",
+            "#Featured-news .block-heading__title"
+          ]
+        },
+        {
+          "id": "section-4-solutions",
+          "name": "Solutions (Simple, smart, secure)",
+          "selector": [
+            "#Solutions",
+            ".section-master:has(.tabs-pill-bar):has(.ocr-accordion)"
+          ],
+          "style": "light-neutral",
+          "blocks": [
+            "advanced-tabs solutions",
+            "advanced-accordion feature"
+          ],
+          "defaultContent": [
+            "#Solutions .block-heading__eyebrow",
+            "#Solutions .block-heading__title"
+          ]
+        },
+        {
+          "id": "section-5-plans",
+          "name": "Plans and add-ons",
+          "selector": [
+            "#Products-and-services",
+            ".section-master:has(.tabs-pill-bar):has(.card-grid)"
+          ],
+          "style": "light",
+          "blocks": [
+            "advanced-tabs plans",
+            "banner plan",
+            "card plan"
+          ],
+          "defaultContent": [
+            "#Products-and-services .block-heading__eyebrow",
+            "#Products-and-services .block-heading__title",
+            ".secondary-sticky-nav .scrollspy-container"
+          ]
+        },
+        {
+          "id": "section-6-customer-stories",
+          "name": "Customer stories",
+          "selector": [
+            "#Customer-stories",
+            ".section-master:has(.carousel)"
+          ],
+          "style": "light-neutral",
+          "blocks": [
+            "advanced-carousel stories"
+          ],
+          "defaultContent": [
+            "#Customer-stories .block-heading__title"
+          ]
+        },
+        {
+          "id": "section-7-get-started",
+          "name": "Get started CTA",
+          "selector": [
+            "#Get-started",
+            ".section-master:has(.three-up-cards.layout--cols-4)"
+          ],
+          "style": "full-bleed-cta-image",
+          "blocks": [
+            "banner cta",
+            "card audience"
+          ],
+          "defaultContent": [
+            "#Get-started .block-heading__eyebrow",
+            "#Get-started .block-heading__title"
+          ]
+        },
+        {
+          "id": "section-8-social-follow",
+          "name": "Follow / social row",
+          "selector": [
+            ".socialfollow"
+          ],
+          "style": "light-neutral",
+          "blocks": [],
+          "defaultContent": [
+            ".socialfollow"
+          ]
+        },
+        {
+          "id": "section-9-footnotes",
+          "name": "Legal footnotes",
+          "selector": [
+            ".section-master:has(.footnote-list)"
+          ],
+          "style": "light-neutral",
+          "blocks": [],
+          "defaultContent": [
+            ".footnote-list"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

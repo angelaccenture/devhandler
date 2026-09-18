@@ -1,0 +1,111 @@
+{
+  "url": "https://www.microsoft.com/en-us",
+  "timestamp": "2026-09-15T22:24:04.958Z",
+  "paths": {
+    "documentPath": "/en-us",
+    "htmlFilePath": "/en-us.plain.html",
+    "mdFilePath": "/en-us.md",
+    "dirPath": "",
+    "filename": "en-us"
+  },
+  "screenshot": ".migration/ms-refresh/screenshot.png",
+  "html": {
+    "filePath": ".migration/ms-refresh/cleaned.html",
+    "size": 1652353
+  },
+  "metadata": {
+    "title": "Microsoft – AI, Cloud, Productivity, Computing, Gaming & Apps",
+    "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
+    "content-page-ref": "QyejA8RNdXaoycf3MlFmXXYaqUzUQcDZH1FIhpYT4OV0nnBSMq5ywnCTQfvxOQZ11MTx1Kor7L9Z_r_OXJWRXA",
+    "robots": "index, follow",
+    "template": "reimagine-consumer-global-homepage-template",
+    "awa-canvasType": "web",
+    "awa-isTented": "false",
+    "awa-pgtmp": "reimagine-consumer-global-homepage-template",
+    "awa-pageType": "Category",
+    "awa-market": "en-us",
+    "awa-cms": "AEM",
+    "description": "Explore Microsoft products and services and support for your home or business. Shop Microsoft 365, Copilot, Teams, Xbox, Windows, Azure, Surface and more.",
+    "twitter:url": "https://www.microsoft.com/en-us",
+    "twitter:title": "Microsoft – AI, Cloud, Productivity, Computing, Gaming & Apps",
+    "twitter:description": "Explore Microsoft products and services and support for your home or business. Shop Microsoft 365, Copilot, Teams, Xbox, Windows, Azure, Surface and more.",
+    "twitter:card": "summary",
+    "og:url": "https://www.microsoft.com/en-us",
+    "og:title": "Microsoft – AI, Cloud, Productivity, Computing, Gaming & Apps",
+    "og:description": "Explore Microsoft products and services and support for your home or business. Shop Microsoft 365, Copilot, Teams, Xbox, Windows, Azure, Surface and more.",
+    "og:type": "website",
+    "awa-pageId": "b15a95926f158ab75edc6160ba9d5bc7",
+    "thirdparty-config": "v83",
+    "format-detection": "telephone=no",
+    "cas-exp-visitor": "/echo/etc.clientlibs/microsoft/components/structure/page/clientlibs/visitor.ACSHASHb62afce26e7190363962d16ddaa42321.min.js",
+    "cas-exp-at": "/echo/etc.clientlibs/microsoft/components/structure/page/clientlibs/experimentation.ACSHASH312c76058a871d54d367898c995c2fd5.min.js",
+    "awa-program": "echo",
+    "awa-enabledFeatures": "DisableBasePageQsp;ccs_test;StoreInternalSSR;LocaleDetection;QspEnabled;contentbackfillgenerate;esiproductcards;feature-controlled-mwf;uhf-ms-io-endpoint;uhf-esi-cv;uhf-esi-cache;contentsquare;mediapixel;holiday-themer;lazyload-static-components;clientlibDefer;upsellEnabled;contentbackfillpkgdelete;healthcheck;contentbackfillhttpgenerate;perf-tracker-1ds;dynamic-bundle;cvIncrementer;tentingEnabled;chatCookiesImplemented;alertCountDownWithoutServerTime;pdpDynamicRendering;bundlesDynamicRendering;contentbackfillmetadatachangesvideo;contentbackfillmetadatachangesnonvideo;listDynamicRendering;experimentation-without-personalization;generic-list-importer;combinedUHF;cvCallEnabled;m365ProductCatalog;support-unsupported-locales;vsbEnabled;deferClickTale;videoLazyLoad;prefetchFontsEnabled;enable-code-isolation;imageLinkTag;fetchPriority;contentIngestionAgent;enableClickgroupTelemetry;imageLazyLoad;contentIngestionAgent-dispatcher2westus2Agent;isCacheControlFeatureEnabled;feature-controlled-content-card;lcpPrioritizationPhase1;ocReimagineTelemetry;deferScriptsEnabled;lcpPrioritizationPhase2;ocReimagineSlotNumberTelemetry;contentIngestionAgent-dispatcher1westus2Agent;ocReimagineComponentNameTelemetry;ocReimagineTemplateNameTelemetry;ptePhase1;extended-html-minification-sites;dynamicPrice;gl-auto-config;displayV35Toggle;chatCustomEndpoint;enableBoostPersonalization;ocReimagineTelemetryTemplateNameSwap;enableEmailConnector;enable-eventingService;ocReimagineAIAssistant;acsPMEFeatureEnabled;ocReimagineCustomerApiUrl;ocReimagineCustomerFilterApiUrl;email-FigmaEmailAutomation;storeVideoUmp;ocProductPricePrimaryLocale;complianceManagerEnabled;entertainmentEW;enableClarityScript;EnableCascadeAuthSDK;ecsMigrationCheck;vsbSearchEnabled",
+    "last-modified": "Tue, 15 Sep 2026 22:20:44 GMT",
+    "canonical": "https://www.microsoft.com/en-us",
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@id": "https://www.microsoft.com/",
+      "@type": "WebSite",
+      "url": "https://www.microsoft.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.microsoft.com/en-us/search/explore?q={search_term_string}&ocid=AID_seo_sitelinks_search"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  },
+  "images": {
+    "count": 37,
+    "mapping": {
+      "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png": "./images/d04eaa7ef475a55b399e1f5a5cdabddf.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Microsoft-AI?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/4fa914e49920091fde3d48852ee93409.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Windows365?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/25888f75cf65bfbcaf82f3ebe28c29a2.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Surface-Laptop-13-Copilot-PC-Ocean?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/8c90ddf12a9c546b0079b5576a3bf8f0.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Teams-Attract-COMMR?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/9ea80ef2f6350ddc8f0820d6f05fb7de.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Promo-M365-Icon-Bounce?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/bef951221bf5a5d83e95000cc5128b3d.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Surface-Pro-12-Copilot-PC-Violet?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/b8ee5042fd383a2063916e4bc4700d44.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/455198-Card-Promo-Vertical-AI-See-You-In-The-Work?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/38bbeb0451ddc2ba19ea69d27eda8422.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/mcaps-facebook-logo?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/6c46b9b261003c98414cf9af572acb19.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Promo-Surface-Family-Laptop-13in-13pt8in-Pro-13in-COMMR?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/bec5161ca67682a2f078a0f8b3fec629.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/mcaps-X-black?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/b973b249ff4432c0c90e735ef23da8e0.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/linkedin-2?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/ce2a0a80b879d8ed27929bcced4494e1.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Apps?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/2b10006577cae4c0e9cce46de5247419.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Xbox-Game-Pass-Game-Art?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/79afd1cb1b9fbfe99894586b2a49b6df.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Xbox-Controllers-Black-Closeup?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/9fdcf2238035bdf9f20ecb19e1d9b01b.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Accessories?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/b14fe9997352a20764c324cc0062d8e5.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Xbox-Controller?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/bc9ddcfe90f954f3b385f65794b03ff0.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Surface-Keyboards-Slate-Violet?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/96356ef825aa3d123439fed946f0df23.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Laptop?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/0d58f778c47e61352a1762e185842ff2.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Business?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/4d3c8d44f6d1b757908bce4722d0c23f.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Quick-Links-Store-Tablet?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/6bebc83a7012376e860a94a2478d3d8d.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Promo-AI-Project-Perception?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/3e95c9a63c13b70d2d73489a84f9dfb3.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-Windows-11-For-Business?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/acf6d928ee8a398ff391eee79b928248.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Feature-AI-Community-Mexican-Entrepreneurs?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=520&hei=224&qlt=85&fit=constrain": "./images/ffcf0afb9ee303694836198f4bf518cb.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSCOM-FY26-Evergreen-Hero-Light-Background-Desktop?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1920&hei=2150&qlt=80&fit=constrain": "./images/ca275de8ce6715c8d55ebda00cd92ba0.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Front-M365-Copilot?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=900&hei=1200&qlt=100&fit=constrain": "./images/9cedfdac43b0e4cabe641c34cfb6dfb4.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Feature-AI-Transparency-Report-2026?resMode=sharp2&op_usm=1.5,0.65,15,0&qlt=85": "./images/b491f049978ecddb725bd01f8053f972.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Feature-How-to-build-an-agent?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=520&hei=224&qlt=85&fit=constrain": "./images/cc25cd7b890f1843a71378b654ed85a6.png",
+      "https://pixel.everesttech.net/px2/4249?px_evt=t&ev_AdobeAC2_Store_SiteEngagement=0&ev_transid=&ut1=&ut2=en&ut3=us&cachebuster=1816185": "./images/fc936553b244f158cfc43df6543ab14a.png",
+      "https://www.google.com/pagead/1p-user-list/923371515/?guid=ON&script=0&url=www.microsoft.com%2Fen-us&data=ecomm_pagetype%3Dcategory&is_vtc=1&cid=CAQS1AEAQM4h3Dtd9uWvRFiKxeKW4xouRmvt9PGGMd5JY42B6pfnERrYi35F5aN47nGqy1Eg76ut1_8Qax8Ok6TFlvT6r5ArRyegsSJmUBhICoAKe6_JetHuGVhWxOKmYK23porvMPrUF4k_O0pCfPd7XfcKmvkVPzHUg7JIItYHUpEZsNJaxsGRVt-F_6oBb5Hc54xEaj-AUbz9N416mcbBBLpOYkQVz6jdBnUxx74OoMYEYkQ9yEENPpdDKZp8KbvE7OymtQQ-7ZmOPanOkKByFEjJmYdrZw&random=207094578": "./images/25654fa1947637061ad5754c2ec2096d.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Horizontal-Azure-Wave-Blue?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3840&hei=2160&qlt=95&fit=constrain": "./images/41c046a2bd8c3e816482182b4459b279.png",
+      "https://px.ads.linkedin.com/collect/?pid=7850&fmt=gif&cookiesTest=true&liSync=true": "./images/5d6c2aeab3f17661619fb64accc25e14.png",
+      "https://c.clarity.ms/c.gif?ctsa=mr&CtsSyncId=2A1C5945E0F54B28BF10586A2E77EE52&MUID=079534A4A5C965582D492371A4C864CC": "./images/c2dad2e54691547300d524d8f381c3ac.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/New-Avatar-Model-2025-61x12px": "./images/937504e3adeed1a2cea2b5e9bcd57901.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Horizontal-Xbox-Series-X-2TB-Galaxy-Black-Series-X-1TB-Digital-White-Series-S-1TB-White?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3840&hei=2160&qlt=95&fit=constrain": "./images/307869f3c12d48780459e60f5a5afb10.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Banner-4-3-Building-NFL-Greatness?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3840&hei=2160&qlt=85&fit=constrain": "./images/9c2d041b342051f8f903689e48bb07f5.png",
+      "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Card-Banner-4-3-AI-Shoot-360?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3840&hei=2160&qlt=85&fit=constrain": "./images/41ab17d1df2e3f9393ab34974ade7277.png"
+    },
+    "stats": {
+      "total": 54,
+      "converted": 35,
+      "skipped": 2,
+      "failed": 17,
+      "tooLarge": 0,
+      "limitReached": 0
+    }
+  }
+}

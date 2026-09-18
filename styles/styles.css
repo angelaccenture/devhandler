@@ -1,9 +1,11 @@
+@import url("tokens.css");
+
 @font-face {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/styles/fonts/montserrat.woff2") format("woff2");
+  src: url("./fonts/montserrat.woff2") format("woff2");
   unicode-range:
     U+0000-00FF,
     U+0131,
@@ -31,7 +33,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/styles/fonts/montserrat-italic.woff2") format("woff2");
+  src: url("./fonts/montserrat-italic.woff2") format("woff2");
   unicode-range:
     U+0000-00FF,
     U+0131,
@@ -54,202 +56,77 @@
     U+FFFD;
 }
 
-:root {
-  /* grid */
-  --grid-container-width: 83.4%;
-  --grid-column-width: calc(var(--grid-container-width) / 12);
-  --grid-gutter-width: 8.3%;
-
-  /* spacing */
-  --spacing-xxl: 48px;
-  --spacing-xl: 32px;
-  --spacing-l: 24px;
-  --spacing-m: 12px;
-  --spacing-s: 8px;
-  --spacing-xs: 4px;
-
-  /* font weights (used by ported blocks: carousel, banner) */
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-
-  /* color schemes */
-  color-scheme: light dark;
-
-  /* color tokens */
-  --color-gray-100: #f1f1f1;
-  --color-gray-200: #d3d3d3;
-  --color-gray-300: #b5b5b5;
-  --color-gray-400: #999;
-  --color-gray-500: #7d7d7d;
-  --color-gray-600: #636363;
-  --color-gray-700: #494949;
-  --color-gray-800: #313131;
-  --color-gray-900: #1b1b1b;
-  --color-green-100: #e1f5e3;
-  --color-green-200: #a3e1a8;
-  --color-green-300: #60cb6a;
-  --color-green-400: #24b032;
-  --color-green-500: #1e9029;
-  --color-green-600: #187220;
-  --color-green-700: #115418;
-  --color-green-800: #0c3910;
-  --color-green-900: #072009;
-  --color-teal-100: #e4f3f5;
-  --color-teal-200: #acdbdf;
-  --color-teal-300: #71c1c9;
-  --color-teal-400: #36a7b3;
-  --color-teal-500: #108a96;
-  --color-teal-600: #0d6d77;
-  --color-teal-700: #0a5158;
-  --color-teal-800: #06363b;
-  --color-teal-900: #041e21;
-  --color-blue-100: #eaf2ff;
-  --color-blue-200: #b9d4ff;
-  --color-blue-300: #88b6ff;
-  --color-blue-400: #5898ff;
-  --color-blue-500: #2176ff;
-  --color-blue-600: #0058e4;
-  --color-blue-700: #0041a9;
-  --color-blue-800: #002c74;
-  --color-blue-900: #001942;
-  --color-purple-100: #f4edfb;
-  --color-purple-200: #dfcbf2;
-  --color-purple-300: #c9a7ea;
-  --color-purple-400: #b385e1;
-  --color-purple-500: #9d60d8;
-  --color-purple-600: #843ccb;
-  --color-purple-700: #622c98;
-  --color-purple-800: #421e66;
-  --color-purple-900: #251139;
-  --color-magenta-100: #ffebf9;
-  --color-magenta-200: #ffc0ec;
-  --color-magenta-300: #ff8fde;
-  --color-magenta-400: #ff53cc;
-  --color-magenta-500: #eb00a5;
-  --color-magenta-600: #bd0084;
-  --color-magenta-700: #8e0064;
-  --color-magenta-800: #630045;
-  --color-magenta-900: #3b002a;
-  --color-red-100: #ffecea;
-  --color-red-200: #ffc4be;
-  --color-red-300: #ff9990;
-  --color-red-400: #ff6759;
-  --color-red-500: #f81400;
-  --color-red-600: #c71000;
-  --color-red-700: #950c00;
-  --color-red-800: #670800;
-  --color-red-900: #3c0500;
-  --color-orange-100: #ffeddc;
-  --color-orange-200: #ffc895;
-  --color-orange-300: #ff9e43;
-  --color-orange-400: #f37500;
-  --color-orange-500: #c76000;
-  --color-orange-600: #9e4c00;
-  --color-orange-700: #753800;
-  --color-orange-800: #4f2600;
-  --color-orange-900: #2d1500;
-  --color-yellow-100: #fff48e;
-  --color-yellow-200: #ebd400;
-  --color-yellow-300: #cab600;
-  --color-yellow-400: #ab9a00;
-  --color-yellow-500: #8c7e00;
-  --color-yellow-600: #6e6400;
-  --color-yellow-700: #514a00;
-  --color-yellow-800: #373100;
-  --color-yellow-900: #1e1b00;
-
-  /* named colors */
-  --color-light-base: 255 255 255;
-  --color-dark-base: 0 0 0;
-  --color-light: rgb(255 255 255);
-  --color-dark: rgb(0 0 0);
-  --color-text: light-dark(var(--color-dark), var(--color-light));
-  --color-link: light-dark(var(--color-gray-900), var(--color-gray-100));
-  --color-brand: var(--color-purple-500);
-  --color-accent: light-dark(var(--color-magenta-600), var(--color-magenta-500));
-  --color-background: light-dark(var(--color-light), var(--color-dark));
-  --color-shaded: light-dark(#f9f9f9, #111);
-
-  /* fonts */
-  --font-family: montserrat, "Trebuchet MS", sans-serif;
-
-  /* headings */
-  --heading-font-size-xxl: 32.44px;
-  --heading-font-size-xl: 28.83px;
-  --heading-font-size-l: 25.63px;
-  --heading-font-size-m: 22.78px;
-  --heading-font-size-s: 20.25px;
-  --heading-font-size-xs: 18px;
-  --heading-line-height: 1.15;
-
-  /* body */
-  --body-font-size-xxxl: 25px;
-  --body-font-size-xxl: 22px;
-  --body-font-size-xl: 20px;
-  --body-font-size-l: 18px;
-  --body-font-size-m: 16px;
-  --body-font-size-s: 14px;
-  --body-font-size-xs: 12px;
-  --body-line-height: 1.6;
-
-  /* misc */
-  --header-height: 64px;
-  --breadcrumb-height: 24px;
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.light-scheme {
-  color-scheme: light;
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-cta-text);
 }
 
-.dark-scheme {
-  color-scheme: dark;
+/* Visible focus indicator for keyboard + mouse (MWF-style), token-driven.
+   Programmatic focus (tabindex="-1") is suppressed so skip-targets don't ring. */
+a[href]:focus,
+area[href]:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+iframe:focus,
+[tabindex]:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
 }
 
 html {
-  scroll-padding-top: calc(var(--header-height) + 1rem);
+  scroll-padding-top: 1rem;
 }
 
 body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: var(--font-family);
   font-size: var(--body-font-size-m);
   line-height: var(--body-line-height);
-  padding: var(--header-height) 0 0;
+  letter-spacing: var(--body-letter-spacing);
 
   &.session {
     /* only allow font loading if a session */
     font-family: var(--font-family);
   }
-
-  &.has-breadcrumb {
-    margin: calc(var(--header-height) + var(--breadcrumb-height)) 0 0;
-  }
-
-  &.no-header {
-    --header-height: 0;
-
-    margin: 0;
-  }
 }
 
 header {
   display: none;
-  height: var(--header-height);
-  position: fixed;
 }
 
 a {
   color: var(--color-link);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   &.btn {
     display: inline-block;
     line-height: 1;
-    font-weight: 500;
+    font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border: 2px solid;
-    padding: 8px 12px;
+    border-radius: var(--button-radius, 4px);
+    padding: var(--button-padding, 8px 12px);
     box-sizing: border-box;
 
     &.btn-outline {
@@ -258,7 +135,7 @@ a {
   }
 
   &.btn-accent {
-    color: #fff;
+    color: var(--color-cta-text);
     background: var(--color-accent);
     border: 2px solid var(--color-accent);
 
@@ -268,12 +145,17 @@ a {
   }
 
   &.btn-primary {
-    color: var(--color-background);
-    background-color: var(--color-text);
-    border: 2px solid var(--color-text);
+    color: var(--color-cta-text);
+    background-color: var(--color-button-primary);
+    border: 2px solid var(--color-button-primary);
+
+    &:hover {
+      background-color: var(--color-button-primary-hover);
+      border-color: var(--color-button-primary-hover);
+    }
 
     &.btn-outline {
-      color: var(--color-text);
+      color: var(--color-button-primary);
       background: transparent;
     }
   }
@@ -289,7 +171,7 @@ a {
   }
 
   &.btn-negative {
-    color: #fff;
+    color: var(--color-cta-text);
     background-color: var(--color-red-600);
     border: 2px solid var(--color-red-600);
 
@@ -297,22 +179,91 @@ a {
       color: var(--color-red-600);
     }
   }
-}
 
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.125em;
+  /* Link-style button — looks like a text link, keeps button hit area */
+  &.btn-link {
+    padding-inline: 0;
+    border-color: transparent;
+    background: transparent;
+    color: var(--color-link);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Inverse — for placing buttons on dark backgrounds / hero overlays */
+  &.btn-inverse {
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 2px solid var(--color-background);
+
+    &.btn-outline {
+      color: var(--color-background);
+      background: transparent;
+    }
+  }
+
+  /* Sizes */
+  &.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-s);
+    font-size: var(--body-font-size-s);
+  }
+
+  &.btn-lg {
+    padding: var(--spacing-m) var(--spacing-l);
+    font-size: var(--body-font-size-l);
+  }
 }
 
 /* sections */
 .section {
   display: block;
+}
 
-  > .default-content {
-    max-width: var(--grid-container-width);
+/* Constrain page-body content to the MD Anderson content column (1440px,
+   72px side padding), centered. Scoped to main so the header/footer
+   fragments — which have their own .section/.default-content — stay
+   full-width and use their own chrome layout. */
+main .section {
+  > .default-content,
+  > .block-content {
+    max-width: var(--content-max-width);
     margin: 0 auto;
+    padding-inline: var(--content-padding-inline);
+  }
+
+  /* Hero goes full-bleed (no width cap / side padding), matching MD Anderson. */
+  &:has(> .block-content > .hero) > .block-content {
+    max-width: none;
+    padding-inline: 0;
+  }
+}
+
+/* ── MD Anderson landing-page section bands ──────────────────────────────────
+   Shared template rhythm: content sections use 70px vertical padding, and a
+   gray band variant provides the alternating background stripe seen across all
+   the landing pages. Apply via section metadata (the Style value becomes the
+   section class):
+     Style: band          → 70px vertical rhythm
+     Style: band-gray     → 70px rhythm + #f2f3f4 background (full-bleed stripe)
+   ──────────────────────────────────────────────────────────────────────────── */
+main .section.band,
+main .section.band-gray {
+  padding-block: 70px;
+}
+
+/* Gray band background — the stripe fills full viewport width while the
+   content inside stays in the 1440px column. */
+main .section.band-gray {
+  background-color: var(--color-mda-band-gray);
+}
+
+@media (width < 900px) {
+  main .section.band,
+  main .section.band-gray {
+    padding-block: 40px;
   }
 }
 
@@ -337,15 +288,136 @@ li {
   margin-block: 1em;
 }
 
+/* Default content typography */
+p {
+  margin-block: 0 var(--spacing-m);
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small {
+  font-size: var(--body-font-size-s);
+  color: var(--color-muted);
+}
+
+blockquote {
+  margin: var(--spacing-l) 0;
+  padding-inline-start: var(--spacing-l);
+  border-inline-start: 4px solid var(--color-border);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-xl) 0;
+}
+
+code {
+  font-family: sfmono-regular, consolas, "Liberation Mono", menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background-color: var(--color-shaded);
+}
+
+figure {
+  margin: var(--spacing-l) 0;
+}
+
+figcaption {
+  margin-top: var(--spacing-s);
+  font-size: var(--body-font-size-s);
+  color: var(--color-muted);
+}
+
+dl {
+  margin-block: 0 var(--spacing-m);
+}
+
+dt {
+  font-weight: var(--font-weight-semibold);
+}
+
+dd {
+  margin: 0 0 var(--spacing-s);
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+mark {
+  background-color: var(--color-yellow-100);
+  color: var(--color-dark);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+pre {
+  margin-block: 0 var(--spacing-m);
+  padding: var(--spacing-m);
+  overflow: auto;
+  border-radius: 4px;
+  background-color: var(--color-shaded);
+  font-family: sfmono-regular, consolas, "Liberation Mono", menlo, monospace;
+  font-size: var(--body-font-size-s);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--spacing-l);
+  font-size: var(--body-font-size-m);
+}
+
+th,
+td {
+  padding: var(--spacing-s) var(--spacing-m);
+  text-align: start;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  margin-block: var(--spacing-l) var(--spacing-m);
+  color: var(--color-titles);
+  font-family: var(--font-family-heading);
+  font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
-  color: var(--color-purple-700);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+:where(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -380,11 +452,10 @@ svg {
 
 /* @media (width >= 900px) {} */
 
-/* @media (width >= 1200px) {} */
-
-@media (width >= 1440px) {
+/* On narrow viewports, reduce the content side padding so content isn't cramped */
+@media (width < 900px) {
   :root {
-    --grid-container-width: 1200px;
+    --content-padding-inline: 24px;
   }
 }
 
@@ -401,3 +472,7 @@ aem-sidekick {
     opacity: 1;
   }
 }
+
+[dir="rtl"] {
+  text-align: right;
+} 

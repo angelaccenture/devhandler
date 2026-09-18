@@ -21,13 +21,9 @@ export function getMetadata(name) {
 export function getLocale(locales = { '': {} }) {
   const { pathname } = window.location;
   const matches = Object.keys(locales).filter((locale) => pathname.startsWith(`${locale}/`));
-  const found = getMetadata('locale') || matches.sort((a, b) => b.length - a.length)?.[0] || '';
-  // An unknown prefix falls back to root, otherwise links localize to a locale that isn't there
-  const prefix = found in locales ? found : '';
-  const locale = locales[prefix] || {};
-  if (locale.lang) document.documentElement.lang = locale.lang;
-  if (locale.dir) document.documentElement.dir = locale.dir;
-  return { prefix, ...locale };
+  const prefix = getMetadata('locale') || matches.sort((a, b) => b.length - a.length)?.[0] || '';
+  if (locales[prefix].lang) document.documentElement.lang = locales[prefix].lang;
+  return { prefix, ...locales[prefix] };
 }
 
 export const [setConfig, getConfig] = (() => {
@@ -61,21 +57,48 @@ export async function loadStyle(href) {
   });
 }
 
+/**
+ * Reads a comma-separated block list from a <meta> in the child's head.html.
+ * Powers the AEM-overlay-style block override system:
+ *   block-extend  → child CSS loads IN ADDITION to FED's (child wins cascade),
+ *                   FED's JS is kept. (~ sling:resourceSuperType)
+ *   block-replace → child CSS *and* JS load from the child's OWN origin,
+ *                   FED's copy is ignored entirely. (~ sling:resourceType)
+ * A block not named in either meta loads only from FED (no extra requests).
+ */
+function getBlockOverride(name) {
+  const listed = (metaName) => (getMetadata(metaName) || '')
+    .split(',').map((s) => s.trim()).filter(Boolean).includes(name);
+  if (listed('block-replace')) return 'replace';
+  if (listed('block-extend')) return 'extend';
+  return null;
+}
+
 export async function loadExperience(el, type, name, opts) {
   const { codeBase, log } = getConfig();
-  const path = `${codeBase}/${type}/${name}/${name}`;
+  const override = type === 'blocks' ? getBlockOverride(name) : null;
+  // FED (/libs) path vs. the child's own same-origin path.
+  const fedPath = `${codeBase}/${type}/${name}/${name}`;
+  const childPath = `/${type}/${name}/${name}`;
+  // replace → run entirely from the child; otherwise decorate/style from FED.
+  const jsPath = override === 'replace' ? childPath : fedPath;
   const loading = [];
   if (opts.decorate) {
     loading.push(new Promise((resolve) => {
       (async () => {
         try {
-          await (await import(`${path}.js`)).default(el);
+          await (await import(`${jsPath}.js`)).default(el);
         } catch (ex) { await log(ex, el); }
         resolve();
       })();
     }));
   }
-  if (opts.style) loading.push(loadStyle(`${path}.css`));
+  if (opts.style) {
+    // replace loads only the child's CSS; extend loads FED base THEN child
+    // (child link is appended second, so it wins at equal specificity).
+    if (override !== 'replace') loading.push(loadStyle(`${fedPath}.css`));
+    if (override) loading.push(loadStyle(`${childPath}.css`));
+  }
   await Promise.all(loading);
   return el;
 }
@@ -105,7 +128,7 @@ function loadTemplate() {
 }
 
 function decoratePictures(el) {
-  const pics = el.querySelectorAll('picture:has([loading])');
+  const pics = el.querySelectorAll('picture');
   for (const pic of pics) {
     const source = pic.querySelector('source');
     const clone = source.cloneNode();
@@ -113,11 +136,14 @@ function decoratePictures(el) {
     const search = new URLSearchParams(params);
     search.set('width', 3000);
     clone.setAttribute('srcset', `${pathname}?${search.toString()}`);
-    clone.setAttribute('media', '(min-width: 1400px)');
+    clone.setAttribute('media', '(min-width: 1440px)');
     pic.prepend(clone);
   }
 }
 
+/* decorateButton disabled: buttons now use the advanced-text (btn-primary)…
+   (/btn-primary) syntax instead of the bold/italic/strike/underline convention.
+   Kept for reference in case the formatting-based convention is reinstated.*/
 function decorateButton(link) {
   const isEm = link.closest('em');
   const isStrong = link.closest('strong');
@@ -206,7 +232,7 @@ export function decorateLink(config, a) {
       const localized = localizeUrl({ config, url });
       if (localized) a.href = localized.href;
     }
-    decorateButton(a);
+    // decorateButton(a); // disabled: buttons now use advanced-text (class) syntax, not bold/italic
     if (!dnb) {
       const href = a.getAttribute('href');
       const found = config.linkBlocks.some((pattern) => {
@@ -218,7 +244,7 @@ export function decorateLink(config, a) {
       if (found) return a;
     }
   } catch (ex) {
-    config.log(ex, a);
+    config.log('Could not decorate link', ex);
   }
   return null;
 }
@@ -236,7 +262,7 @@ function decorateLinks(el) {
 function loadIcons(el) {
   const icons = el.querySelectorAll('span.icon');
   if (!icons.length) return;
-  import('./utils/svg.js').then((mod) => mod.default(icons));
+  import('./utils/icons.js').then((mod) => mod.default(icons));
 }
 
 function groupChildren(section) {
@@ -259,9 +285,40 @@ function groupChildren(section) {
   return groups;
 }
 
+function toClassName(name) {
+  return typeof name === 'string'
+    ? name
+      .toLowerCase()
+      .replace(/[^0-9a-z]/gi, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+    : '';
+}
+
 function decorateSection(section) {
   // Always add section class
   section.classList.add('section');
+
+  // Find the legacy DOM-based metadata
+  const metaEl = section.querySelector(':scope > .section-metadata');
+  if (metaEl) {
+    [...metaEl.children].forEach((row) => {
+      const key = row.children[0].textContent.trim().toLowerCase();
+      const content = row.children[1];
+      if (content) {
+        const text = content.querySelector('img')?.src ?? content.textContent.trim().toLowerCase();
+        if (key && text) {
+          if (key === 'style') {
+            const styles = text.split(',').map((style) => toClassName(style));
+            section.classList.add(...styles);
+            return;
+          }
+          section.dataset[key] = text;
+        }
+      }
+    });
+    metaEl.remove();
+  }
 
   // Determine if the section needs section-metadata.js
   const meta = section.classList.length > 1 || Object.keys(section.dataset).length;

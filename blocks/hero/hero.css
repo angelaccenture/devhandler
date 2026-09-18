@@ -4,8 +4,21 @@
   --default-min-height: 360px;
   --min-height: var(--default-min-height);
 
+  /* Button tokens — hero-scoped, falling back to global semantic tokens.
+     Child sites override either these hero vars or the global tokens. */
+  --hero-btn-primary-bg: var(--color-button-primary);
+  --hero-btn-primary-text: var(--color-cta-text);
+  --hero-btn-primary-bg-hover: var(--color-button-primary-hover);
+  --hero-btn-secondary-bg: transparent;
+  --hero-btn-secondary-text: var(--color-headings);
+  --hero-btn-secondary-border: var(--color-border);
+  --hero-btn-secondary-bg-hover: var(--color-gray-100);
+  --hero-btn-radius: var(--button-radius);
+  --hero-btn-padding: var(--button-padding);
+  --hero-btn-gap: var(--spacing-m);
+
   position: relative;
-  color: #fff;
+  color: var(--color-headings);
   overflow: hidden;
 
   &.small {
@@ -83,12 +96,8 @@
     min-height: var(--min-height);
     padding: var(--spacing-xxl) 0;
     box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-
+    position: relative; 
+  
     p {
       margin: 8px 0;
     }
@@ -106,17 +115,95 @@
       margin-bottom: 0;
     }
 
+    /* Eyebrow — uppercase, letter-spaced, muted (Azure-style) */
     .hero-detail {
       margin: 0;
+      font-size: var(--body-font-size-s);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-muted);
     }
 
     .hero-heading {
       margin: 0;
+      font-weight: var(--font-weight-medium);
+      line-height: 56px;
+      letter-spacing: -0.02em;
+    }
+
+    .fg-text p {
+      max-width: 34rem;
+    }
+
+    /* CTA row — the paragraph holding the hero links.
+       Authored as: <p><strong><a>Primary</a></strong><br><a>Secondary</a></p> */
+    .fg-text p:has(a) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--hero-btn-gap);
+      align-items: center;
+      margin-top: var(--spacing-l);
+
+      /* neutralize the authored line break so CTAs sit side by side */
+      br {
+        display: none;
+      }
+
+      a {
+        display: inline-block;
+        padding: var(--hero-btn-padding);
+        border-radius: var(--hero-btn-radius);
+        font-size: var(--button-font-size, var(--body-font-size-s));
+        font-weight: var(--font-weight-semibold);
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: background-color var(--transition-base), color var(--transition-base);
+      }
+
+      /* Secondary (bare link) */
+      > a {
+        background: var(--hero-btn-secondary-bg);
+        color: var(--hero-btn-secondary-text);
+        border-color: var(--hero-btn-secondary-border);
+
+        &:hover {
+          background: var(--hero-btn-secondary-bg-hover);
+        }
+      }
+
+      /* Primary (link wrapped in <strong>) */
+      strong {
+        font-weight: inherit;
+
+        a {
+          background: var(--hero-btn-primary-bg);
+          color: var(--hero-btn-primary-text);
+          border-color: var(--hero-btn-primary-bg);
+
+          &:hover {
+            background: var(--hero-btn-primary-bg-hover);
+            border-color: var(--hero-btn-primary-bg-hover);
+          }
+        }
+      }
     }
   }
 
   &.stack {
     .hero-background {
+      position: relative;
+      aspect-ratio: var(--hero-image-ratio, 16 / 5);
+
+      picture,
+      img {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+
       > div {
         min-height: var(--default-min-height);
         position: relative;
@@ -124,12 +211,12 @@
     }
 
     .hero-foreground {
-      background: #111;
+      background: var(--color-gray-900);
     }
 
     &.light {
       .hero-foreground {
-        background: #f9f9f9;
+        background: var(--color-shaded);
       }
     }
 
@@ -158,7 +245,9 @@
   .hero {
     .hero-foreground {
       display: grid;
-      grid-template-columns: 45% 45%;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xxl);
+      align-items: center;
       justify-content: space-between;
       max-width: var(--grid-container-width);
       margin: 0 auto;
@@ -224,80 +313,137 @@
   }
 }
 
-/* ── AI variant ───────────────────────────────────────────────────────────────
-   Microsoft.com evergreen hero. Styled against the DOM hero.js actually produces:
-   centered .hero-foreground with .fg-text; greeting is .hero-heading; the
-   Personal/Business toggle is an authored <ul>; the ask-bar is an authored
-   blockquote; the suggestion chips are a paragraph of links. Visual-only. */
-.hero.ai {
-  --hero-ai-blue: var(--color-blue-600, #0058e4);
+/* ─────────────────────────────────────────────────────────────────────────
+   MD Anderson hero — full-bleed 450px background image with white, left-
+   aligned serif text overlaid (matches mdanderson.org's hero carousel slide).
+   Scoped to the landing template so it doesn't affect the generic hero
+   defaults used elsewhere. Values extracted from the live site:
+     height 450px · h1 Minion 72px/72px wt400 white letter-spacing -1.44px.
+   ───────────────────────────────────────────────────────────────────────── */
+.landing-template .hero {
+  --min-height: 450px;
 
-  background: linear-gradient(180deg, light-dark(#f2f2f5, #1b1b1b) 0%, light-dark(#fff, #111) 100%);
+  color: var(--color-light);
 
   .hero-foreground {
-    max-width: 760px;
-    margin-inline: auto;
-    padding-block: var(--spacing-xxl);
-    text-align: center;
+    /* Text overlays the image, left-aligned, vertically centered. A subtle
+       left-to-right dark scrim keeps the white text legible over the photo. */
+    display: flex;
+    align-items: center;
+    grid-template-columns: none;
+    padding-block: 0;
   }
 
   .fg-text {
-    align-items: center;
+    width: var(--content-max-width);
+    max-width: 100%;
+    margin: 0 auto;
+    padding-inline: var(--content-padding-inline);
+    color: var(--color-light);
+    text-align: left;
   }
 
+  /* Text sits in the left ~60% of the hero (image fills the right). */
+  .hero-heading,
+  .fg-text p {
+    max-width: 60%;
+  }
+
+  /* Authored order: heading → name → role → CTA link (matches the live
+     carousel slide: Minion title, bold sans name/role, plain white link). */
   .hero-heading {
-    color: var(--color-purple-700);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.1;
-  }
-
-  /* Personal / Business toggle — authored as a 2-item list */
-  ul {
-    list-style: none;
-    display: inline-flex;
-    gap: 4px;
-    padding: 4px;
-    margin: var(--spacing-m) auto;
-    background: light-dark(var(--color-gray-100), var(--color-gray-800));
-    border-radius: 999px;
-  }
-
-  ul li {
-    padding: 6px 20px;
-    border-radius: 999px;
-    font-size: var(--body-font-size-s);
-    cursor: pointer;
-  }
-
-  ul li:first-child {
-    background: var(--hero-ai-blue);
+    margin: 0;
+    font-family: var(--font-family-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* up to 72px */
+    font-weight: var(--font-weight-regular);
+    line-height: 1;
+    letter-spacing: -0.02em;
     color: var(--color-light);
   }
 
-  /* AI ask bar — authored as a blockquote, styled as an input affordance */
-  blockquote {
-    display: block;
-    max-width: 640px;
-    margin: var(--spacing-m) auto var(--spacing-s);
-    padding: 12px 20px;
-    border: 1px solid var(--hero-ai-blue);
-    border-radius: 999px;
-    color: light-dark(var(--color-gray-500), var(--color-gray-300));
-    background: light-dark(var(--color-light), var(--color-gray-900));
-    text-align: start;
-    font-style: normal;
+  /* Name / role caption — bold sans, tight stack under the title. */
+  .fg-text p:not(:has(a)) {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--color-light);
   }
 
-  /* suggestion chips — the paragraph of links after the bar */
-  p:has(a) a {
+  /* First caption line gets air below the title. */
+  .hero-heading + p {
+    margin-top: var(--spacing-m);
+  }
+
+  /* Rule under the name/role group — the role line (2nd caption after the
+     heading) gets a hugging white underline (matches the live slide border).
+     Authored order: heading → name → role → CTA. */
+  .hero-heading + p + p:not(:has(a)) {
     display: inline-block;
-    margin: var(--spacing-xs);
-    padding: 6px 16px;
-    border: 1px solid light-dark(var(--color-gray-300), var(--color-gray-600));
-    border-radius: 999px;
-    font-size: var(--body-font-size-xs);
-    text-decoration: none;
-    color: var(--hero-ai-blue);
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-light);
+  }
+
+  /* CTA — a plain white serif text link (24px) with a trailing arrow. NOT a
+     button: override the generic hero-button chrome (radius, padding, sans). */
+  .fg-text p:has(a) {
+    display: block;
+    margin-top: var(--spacing-m);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+      color: var(--color-light);
+      font-family: var(--font-family-heading);
+      font-size: 1.5rem; /* 24px */
+      font-weight: var(--font-weight-regular);
+      line-height: 1.3;
+      text-align: left;
+      text-decoration: none;
+
+      /* trailing full arrow (no icon-font dependency) */
+      &::after {
+        content: "";
+        width: 0.9em;
+        height: 0.9em;
+        background-color: currentcolor;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+        transition: transform 0.15s ease;
+      }
+
+      &:hover {
+        text-decoration: underline;
+
+        &::after {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}
+
+@media (width < 900px) {
+  .landing-template .hero {
+    --min-height: 320px;
+  }
+
+  .landing-template .hero .hero-heading {
+    font-size: 2.25rem;
+  }
+
+  /* On small screens the text spans the full column, not just half. */
+  .landing-template .hero .hero-heading,
+  .landing-template .hero .fg-text p {
+    max-width: 100%;
+  }
+
+  .landing-template .hero .fg-text p:has(a) a {
+    font-size: 1.25rem; /* 20px */
   }
 }
