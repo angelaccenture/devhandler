@@ -1,15 +1,6 @@
 import { loadArea, setConfig, getConfig, getMetadata } from './ak.js';
 import { decorateAdvancedText } from '../blocks/advanced-text/advanced-text.js';
 
-// Satisfies require-trusted-types-for; runs before loadPage reaches any sink.
-if (window.trustedTypes?.createPolicy) {
-  window.trustedTypes.createPolicy('default', {
-    createHTML: (input) => input,
-    createScriptURL: (input) => input,
-    createScript: (input) => input,
-  });
-}
-
 const hostnames = ['authorkit.dev'];
 
 const locales = {
