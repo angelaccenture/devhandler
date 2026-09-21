@@ -292,6 +292,8 @@
 
     .card-content-container {
       padding: 0;
+      position: relative;
+      z-index: 2;
 
       h2,
       h3,
@@ -310,6 +312,8 @@
 
     .card-cta-container {
       padding: 0;
+      position: relative;
+      z-index: 2;
 
       a {
         display: inline-block;
