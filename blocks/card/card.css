@@ -252,6 +252,26 @@
         /* Darken lighter product shots so the white overlay text reads. */
         filter: brightness(0.72) saturate(1.05);
       }
+
+      /* Interaction overlay on the image itself (matches microsoft.com's
+         .media__asset__overlay::after): transparent at rest, dark wash on
+         hover. Separate from the bottom text scrim so it covers the whole
+         image evenly. */
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: rgb(0 0 0 / 0%);
+        transition: background 0.3s ease;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    &:hover .card-picture-container::after,
+    &:focus-within .card-picture-container::after {
+      background: rgb(0 0 0 / 45%);
     }
 
     /* Bottom scrim so white text reads; deepens to a near-full dark wash on
@@ -266,11 +286,6 @@
       transition: background 0.3s ease;
     }
 
-    &:hover::before,
-    &:focus-within::before {
-      background:
-        linear-gradient(180deg, rgb(0 0 0 / 72%) 0%, rgb(0 0 0 / 82%) 55%, rgb(0 0 0 / 94%) 100%);
-    }
 
     /* Decorative chevron, aligned with the heading row bottom-right. Rotates
        to point up on hover, signalling the expanded state. */
