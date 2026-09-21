@@ -1,5 +1,8 @@
 /* search — Microsoft "Ask a question" bar (visual only). */
-
+.search {
+  max-width: 990px;
+  margin: 0 auto;
+}
 .search .search-field {
   position: relative;
   display: flex;
