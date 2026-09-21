@@ -314,6 +314,11 @@ main .section.hero-intro p {
 main .section.hero-intro .search {
   width: 100%;
 }
+main .section.hero-intro em {
+  font-size: 16px;
+  font-weight: 400;
+  color: #17253d;
+}
 
 /* Quick-link buttons: evenly spaced pills, wrapping neatly on small screens. */
 main .section.hero-intro p:has(.btn) {
