@@ -317,7 +317,7 @@ main .section.hero-intro .search {
 main .section.hero-intro em {
   font-size: 16px;
   font-weight: 400;
-  color: #17253d;
+  color: rgb(23, 37, 61);
 }
 
 /* Quick-link buttons: evenly spaced pills, wrapping neatly on small screens. */
