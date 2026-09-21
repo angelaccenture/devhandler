@@ -93,6 +93,11 @@ html {
 body {
   margin: 0;
   background-color: var(--color-background);
+  background-image: url("/img/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-family);
   font-size: var(--body-font-size-m);
