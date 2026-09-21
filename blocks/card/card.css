@@ -170,6 +170,32 @@
         object-fit: contain;
       }
     }
+    /* Standard variant — small app-style icon (e.g. Word/Excel) instead of a banner
+     image. Icon sits top-left at its natural size, not stretched full-bleed. */
+  &.standard {
+    --card-icon-size: 48px;
+
+    .card-picture-container {
+      position: static;
+      padding: var(--spacing-default) var(--spacing-default) 0;
+      padding-bottom: 0;
+      width: auto;
+
+      picture {
+        position: static;
+        display: block;
+        width: var(--card-icon-size);
+        height: var(--card-icon-size);
+      }
+
+      img {
+        width: var(--card-icon-size);
+        height: var(--card-icon-size);
+        object-fit: contain;
+      }
+    }
+  }
+
 
     /* Content already has its own top padding; tighten the gap under the icon. */
     .card-content-container {
