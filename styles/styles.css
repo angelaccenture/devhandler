@@ -272,6 +272,49 @@ main .section.band-gray {
   }
 }
 
+/* ── Section style: hero-intro ───────────────────────────────────────────────
+   The homepage top section (welcome heading, Personal/Business tabs, search
+   bar, quick-link buttons). Centers everything, adds vertical rhythm, and
+   spaces the stacked pieces evenly.
+   ──────────────────────────────────────────────────────────────────────────── */
+main .section.hero-intro {
+  padding-block: 64px 72px;
+  text-align: center;
+}
+
+main .section.hero-intro .default-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+main .section.hero-intro h1 {
+  margin: 0;
+  font-weight: var(--font-weight-light, 300);
+}
+
+/* The intro line + search + buttons already sit in the flex column; keep their
+   own margins from doubling the gap. */
+main .section.hero-intro p {
+  margin: 0;
+}
+
+/* Search bar spans the column width. */
+main .section.hero-intro .search {
+  width: 100%;
+}
+
+/* Quick-link buttons: evenly spaced pills, wrapping neatly on small screens. */
+main .section.hero-intro p:has(.btn) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 main {
   ul,
   ol {
