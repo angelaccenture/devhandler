@@ -332,6 +332,7 @@ main .section.hero-intro .btn {
   border-radius: 999px;
   color: var(--color-ms-blue-600);
   font-weight: var(--font-weight-regular, 400);
+  background-color: rgb(230, 239, 253);
 }
 
 main .section.hero-intro .btn:hover {
