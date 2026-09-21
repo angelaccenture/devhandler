@@ -172,12 +172,15 @@
 .advanced-carousel.deck .carousel-deck-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(300px, 1fr);
-  gap: 24px;
+  grid-auto-columns: 426px;
+  gap: 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding-bottom: 8px;
+  /* Room for the staggered lift so nothing clips at the top. */
+  padding-top: 24px;
+  align-items: start;
 }
 
 .advanced-carousel.deck .carousel-deck-track::-webkit-scrollbar {
@@ -191,11 +194,10 @@
   padding: 0;
 }
 
-/* On wide screens show three cards at once. */
-@media (width >= 900px) {
-  .advanced-carousel.deck .carousel-deck-track {
-    grid-auto-columns: calc((100% - 48px) / 3);
-  }
+/* Staggered layout — every other card sits raised, matching microsoft.com's
+   offset deck rhythm. */
+.advanced-carousel.deck .carousel-deck-track > .section:nth-child(even) {
+  transform: translateY(-24px);
 }
 
 /* Nav: circular arrows clustered bottom-left. */

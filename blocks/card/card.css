@@ -230,8 +230,9 @@
     --card-radius: 12px;
 
     position: relative;
-    aspect-ratio: 3 / 4;
-    min-height: 460px;
+    width: 426px;
+    max-width: 100%;
+    height: 568px;
     background: #0b0b0f;
     color: var(--color-light);
 
@@ -331,9 +332,11 @@
       h4 {
         margin: 0;
         color: var(--color-light);
-        font-size: var(--heading-font-size-l);
-        font-weight: var(--font-weight-semibold);
-        line-height: 1.15;
+        font-family: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.3px;
       }
 
       /* Description — hidden by default, revealed on hover/focus. Animates
@@ -343,7 +346,8 @@
         max-height: 0;
         opacity: 0;
         overflow: hidden;
-        font-size: var(--body-font-size-s, 0.875rem);
+        font-family: "Segoe UI Variable Text", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 15px;
         line-height: 1.4;
         transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
       }
