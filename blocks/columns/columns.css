@@ -177,8 +177,8 @@
    come from /img/icons and are set per column via nth-child.
    ──────────────────────────────────────────────────────────────────────────── */
 .columns.shop-nav {
-  --shop-nav-color: rgb(14 23 38);
-
+  --shop-nav-color:rgb(0, 66, 117);
+  font-size: 14px;
   padding-block: 24px;
   max-width: 990px;
     margin: 0 auto;
