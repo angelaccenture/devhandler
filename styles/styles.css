@@ -319,6 +319,22 @@ main .section.hero-intro p:has(.btn) {
   gap: 12px;
 }
 
+/* Rounded pill treatment — thin blue outline, blue text (matches microsoft.com's
+   quick-link chips). Overrides the default squared btn-outline. */
+main .section.hero-intro .btn {
+  padding: 8px 20px;
+  border-width: 1px;
+  border-color: var(--color-ms-blue-600);
+  border-radius: 999px;
+  color: var(--color-ms-blue-600);
+  font-weight: var(--font-weight-regular, 400);
+}
+
+main .section.hero-intro .btn:hover {
+  background-color: rgb(0 103 184 / 8%);
+  border-color: var(--color-ms-blue-600);
+}
+
 main {
   ul,
   ol {
