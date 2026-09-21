@@ -43,7 +43,7 @@
    =========================================================================== */
 .advanced-tabs.pills .tab-list {
   gap: 8px;
-  padding: 4px;
+  padding: 10px;
   width: fit-content;
   margin-inline: auto;
   background-color: var(--color-shaded, #f2f2f2);
@@ -59,7 +59,7 @@
 
     &.is-active {
       border-bottom: 0;
-      background-color: var(--color-cta, var(--color-primary));
+      background-color: var(--ds-pill-active-background-color, var(--ds-theme-background-accent-subtle-selected, #005597));
       color: var(--color-cta-text, #fff);
     }
   }
