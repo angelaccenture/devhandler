@@ -135,6 +135,15 @@ function initDeck(el) {
 
   el.append(track, nav);
   syncButtons();
+
+  // Re-sync once images load and on resize — scrollWidth isn't final until the
+  // card images have laid out, so the first sync can wrongly disable "next".
+  window.addEventListener('resize', syncButtons, { passive: true });
+  track.querySelectorAll('img').forEach((img) => {
+    if (img.complete) return;
+    img.addEventListener('load', syncButtons, { once: true });
+  });
+  requestAnimationFrame(syncButtons);
 }
 
 export default function init(el) {

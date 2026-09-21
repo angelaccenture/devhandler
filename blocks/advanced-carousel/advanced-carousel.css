@@ -209,16 +209,11 @@
   width: 44px;
   height: 44px;
   background-color: transparent;
-  border: 1px solid var(--color-gray-300, #b5b5b5);
+  border: 1px solid var(--color-ms-blue-600, #0067b8);
 }
 
+/* Enabled arrows: navy border + navy chevron. */
 .advanced-carousel.deck .carousel-navigation-buttons > button::after {
-  border-color: var(--color-ms-blue-600, #0067b8);
-}
-
-/* Active "next" arrow: filled look with a dashed ring accent. */
-.advanced-carousel.deck .carousel-navigation-buttons > button.slide-next:not(:disabled) {
-  border-style: dashed;
   border-color: var(--color-ms-blue-600, #0067b8);
 }
 
@@ -226,8 +221,14 @@
   background-color: rgb(0 103 184 / 8%);
 }
 
+/* Disabled arrow: light gray border + gray chevron (the inactive one). */
 .advanced-carousel.deck .carousel-navigation-buttons > button:disabled {
-  opacity: 0.4;
+  border-color: var(--color-gray-300, #d0d0d0);
+  cursor: default;
+}
+
+.advanced-carousel.deck .carousel-navigation-buttons > button:disabled::after {
+  border-color: var(--color-gray-300, #d0d0d0);
 }
 
 /* ===========================================================================
