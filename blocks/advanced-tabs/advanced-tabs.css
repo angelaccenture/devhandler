@@ -54,12 +54,13 @@
     border-radius: 999px;
     padding: 8px 20px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 400;
     color: #2a446f;
     transition: background-color 0.2s ease, color 0.2s ease;
 
     &.is-active {
       border-bottom: 0;
+       font-weight: 600;
       background-color: var(--ds-pill-active-background-color, var(--ds-theme-background-accent-subtle-selected, #005597));
       color: var(--color-cta-text, #fff);
     }
