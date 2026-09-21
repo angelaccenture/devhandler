@@ -163,6 +163,74 @@
 }
 
 /* ===========================================================================
+   VARIANT: advanced-carousel (deck)
+   A horizontal scroll row of the following card sections (microsoft.com
+   product/story deck). Circular prev/next arrows sit bottom-left; the active
+   "next" arrow is a filled navy circle with a dashed ring, prev is a light
+   outline circle — matching the live homepage.
+   =========================================================================== */
+.advanced-carousel.deck .carousel-deck-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 1fr);
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.advanced-carousel.deck .carousel-deck-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each following section becomes one snap-aligned column in the track. */
+.advanced-carousel.deck .carousel-deck-track > .section {
+  scroll-snap-align: start;
+  margin: 0;
+  padding: 0;
+}
+
+/* On wide screens show three cards at once. */
+@media (width >= 900px) {
+  .advanced-carousel.deck .carousel-deck-track {
+    grid-auto-columns: calc((100% - 48px) / 3);
+  }
+}
+
+/* Nav: circular arrows clustered bottom-left. */
+.advanced-carousel.deck .carousel-navigation-buttons {
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 24px 0 0;
+}
+
+.advanced-carousel.deck .carousel-navigation-buttons > button {
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: 1px solid var(--color-gray-300, #b5b5b5);
+}
+
+.advanced-carousel.deck .carousel-navigation-buttons > button::after {
+  border-color: var(--color-ms-blue-600, #0067b8);
+}
+
+/* Active "next" arrow: filled look with a dashed ring accent. */
+.advanced-carousel.deck .carousel-navigation-buttons > button.slide-next:not(:disabled) {
+  border-style: dashed;
+  border-color: var(--color-ms-blue-600, #0067b8);
+}
+
+.advanced-carousel.deck .carousel-navigation-buttons > button:hover:not(:disabled) {
+  background-color: rgb(0 103 184 / 8%);
+}
+
+.advanced-carousel.deck .carousel-navigation-buttons > button:disabled {
+  opacity: 0.4;
+}
+
+/* ===========================================================================
    VARIANT: advanced-carousel (hero)
    Control chrome only — matches the microsoft.com homepage hero slideshow.
    Controls span the full width: prev far-left, center group of LINE (dash)

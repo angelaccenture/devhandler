@@ -86,7 +86,62 @@ function createNavButtons() {
   return { nav, prevBtn, nextBtn };
 }
 
+/**
+ * Deck variant — a horizontal scroll row of the following card sections
+ * (microsoft.com story/product deck). No tabs/panels: the sibling sections
+ * become a single scrolling track, with circular prev/next arrows that page
+ * the track left/right.
+ */
+function initDeck(el) {
+  const currSection = el.closest('.section');
+  currSection.classList.add('carousel-deck-section');
+
+  // Collect the following sibling sections until the next carousel/tabs block.
+  const cards = [];
+  let sibling = currSection.nextElementSibling;
+  while (sibling) {
+    if (sibling.querySelector('.advanced-carousel, .advanced-tabs')) break;
+    cards.push(sibling);
+    sibling = sibling.nextElementSibling;
+  }
+
+  const track = document.createElement('div');
+  track.className = 'carousel-deck-track';
+  track.append(...cards);
+
+  const { nav, prevBtn, nextBtn } = createNavButtons();
+
+  const page = (dir) => {
+    const first = track.querySelector(':scope > *');
+    const step = first ? first.getBoundingClientRect().width + 24 : track.clientWidth * 0.8;
+    track.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+
+  const syncButtons = () => {
+    prevBtn.disabled = track.scrollLeft <= 4;
+    nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+
+  prevBtn.addEventListener('click', () => page(-1));
+  nextBtn.addEventListener('click', () => page(1));
+  track.addEventListener('scroll', syncButtons, { passive: true });
+
+  const carousel = el.querySelector('.advanced-carousel ul');
+  if (carousel) {
+    const listCell = carousel.closest('.advanced-carousel > div');
+    (listCell || carousel).remove();
+  }
+
+  el.append(track, nav);
+  syncButtons();
+}
+
 export default function init(el) {
+  if (el.classList.contains('deck')) {
+    initDeck(el);
+    return;
+  }
+
   const instanceId = carouselInstanceId;
   carouselInstanceId += 1;
 

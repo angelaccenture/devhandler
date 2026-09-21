@@ -221,6 +221,113 @@
     }
   }
 
+  /* ── Overlay variant — microsoft.com "product" cards ─────────────────────
+     Full-bleed background image with a dark gradient scrim; heading + optional
+     button overlaid at the bottom-left, and a decorative chevron bottom-right.
+     Add `dark` when the source image is already dark (deepens the scrim).
+     ──────────────────────────────────────────────────────────────────────── */
+  &.overlay {
+    --card-radius: 12px;
+
+    position: relative;
+    aspect-ratio: 4 / 5;
+    color: var(--color-light);
+
+    .card-inner {
+      display: block;
+      height: 100%;
+    }
+
+    .card-picture-container {
+      position: absolute;
+      inset: 0;
+      padding: 0;
+
+      picture,
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    /* Gradient scrim so the overlaid text stays legible. */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgb(0 0 0 / 0%) 45%, rgb(0 0 0 / 78%) 100%);
+      z-index: 1;
+    }
+
+    /* Decorative chevron bottom-right (matches the live "expand" affordance). */
+    &::after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      bottom: 92px;
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid var(--color-light);
+      border-bottom: 2px solid var(--color-light);
+      transform: rotate(45deg);
+      z-index: 2;
+    }
+
+    .card-content-container,
+    .card-cta-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-content-container {
+      position: absolute;
+      inset: auto 0 0;
+      padding: var(--spacing-l) var(--spacing-l) 0;
+
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        color: var(--color-light);
+        font-size: var(--heading-font-size-l);
+        font-weight: var(--font-weight-semibold);
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .card-cta-container {
+      position: absolute;
+      inset: auto auto var(--spacing-l) var(--spacing-l);
+      padding: 0;
+
+      a {
+        display: inline-block;
+        padding: 8px 16px;
+        background: var(--color-light);
+        color: var(--color-dark);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--body-font-size-s, 0.875rem);
+        text-decoration: none;
+        border-radius: 2px;
+
+        &:hover {
+          background: #e6e6e6;
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
   &.quiet {
     --spacing-default: 0;
 
