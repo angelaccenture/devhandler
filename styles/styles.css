@@ -272,6 +272,20 @@ main .section.band-gray {
   }
 }
 
+/* ── Section style: centered-title ───────────────────────────────────────────
+   Centers the section's leading heading/intro (the default-content block that
+   sits above a grid of cards), matching microsoft.com's section headers.
+   ──────────────────────────────────────────────────────────────────────────── */
+main .section.centered-title > .default-content {
+  text-align: center;
+}
+
+main .section.centered-title > .default-content h2 {
+  margin-bottom: var(--spacing-l);
+  font-family: "Segoe UI Variable Display", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: 600;
+}
+
 /* ── Section style: hero-intro ───────────────────────────────────────────────
    The homepage top section (welcome heading, Personal/Business tabs, search
    bar, quick-link buttons). Centers everything, adds vertical rhythm, and
