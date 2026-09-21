@@ -170,3 +170,58 @@
     }
   }
 }
+
+/* ── Variant: shop-nav ───────────────────────────────────────────────────────
+   A horizontal row of quick-shop links, each with a line icon above a centered,
+   underlined navy label (matches microsoft.com's homepage shop strip). Icons
+   come from /img/icons and are set per column via nth-child.
+   ──────────────────────────────────────────────────────────────────────────── */
+.columns.shop-nav {
+  --shop-nav-color: rgb(14 23 38);
+
+  padding-block: 24px;
+}
+
+.columns.shop-nav .row {
+  justify-items: center;
+}
+
+.columns.shop-nav .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Icon above the label. */
+.columns.shop-nav .col::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: var(--shop-nav-color);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.columns.shop-nav .col-1::before { mask-image: url("/img/icons/shop-surface.svg"); }
+.columns.shop-nav .col-2::before { mask-image: url("/img/icons/shop-m365.svg"); }
+.columns.shop-nav .col-3::before { mask-image: url("/img/icons/shop-xbox.svg"); }
+.columns.shop-nav .col-4::before { mask-image: url("/img/icons/shop-pc.svg"); }
+.columns.shop-nav .col-5::before { mask-image: url("/img/icons/shop-accessories.svg"); }
+.columns.shop-nav .col-6::before { mask-image: url("/img/icons/shop-business.svg"); }
+
+.columns.shop-nav .col p {
+  margin: 0;
+}
+
+.columns.shop-nav .col a {
+  color: var(--shop-nav-color);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.columns.shop-nav .col a:hover {
+  text-decoration: none;
+}
