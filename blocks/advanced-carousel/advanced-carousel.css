@@ -177,8 +177,7 @@
 
   /* Horizontal scroll only — clip the vertical axis so the raised (staggered)
      cards don't create a vertical scroll region that fights the nav buttons. */
-  overflow-x: auto;
-  overflow-y: clip;
+  overflow: auto clip;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding-block: 24px 8px;
