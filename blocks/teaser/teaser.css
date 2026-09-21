@@ -73,17 +73,6 @@
     margin: 0;
     display: flex;
     justify-content: start;
-
-    a {
-      color: var(--teaser-cta-color);
-      font-weight: var(--font-weight-semibold);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
 
   &:not(.quiet):hover {
