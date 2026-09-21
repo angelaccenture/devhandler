@@ -356,3 +356,73 @@
 .advanced-carousel.dots .carousel-slide-indicator button:focus-visible {
   background-color: var(--carousel-dot-active);
 }
+
+/* ===========================================================================
+   VARIANT: advanced-carousel (story)
+   Full-width one-slide-at-a-time carousel for TEASER panels (microsoft.com
+   "Powering every play" story carousel). Control chrome only — the teaser
+   inside each slide keeps its own layout. Circular navy prev/next arrows sit
+   bottom-LEFT; a rounded-square pause button sits bottom-RIGHT. No dots.
+   =========================================================================== */
+.advanced-carousel.story {
+  --carousel-ctl: var(--color-ms-blue-800, #003966);
+}
+
+/* Controls span full width: arrows left, pause pushed far right. */
+.advanced-carousel.story .carousel-navigation-buttons {
+  justify-content: flex-start;
+  width: 100%;
+  gap: 16px;
+  padding: 24px 0 0;
+}
+
+/* Hide the dot indicators — arrows + pause only. */
+.advanced-carousel.story .carousel-slide-indicators {
+  display: none;
+}
+
+/* Prev/next: large circular navy-outline buttons. */
+.advanced-carousel.story .carousel-navigation-buttons > button {
+  width: 52px;
+  height: 52px;
+  background-color: transparent;
+  border: 1.5px solid var(--carousel-ctl);
+}
+
+.advanced-carousel.story .carousel-navigation-buttons > button::after {
+  border-color: var(--carousel-ctl);
+}
+
+.advanced-carousel.story .carousel-navigation-buttons > button:hover:not(:disabled) {
+  background-color: rgb(0 57 102 / 8%);
+}
+
+/* Idle/disabled arrow: light gray ring + gray chevron. */
+.advanced-carousel.story .carousel-navigation-buttons > button:disabled {
+  border-color: var(--color-gray-300, #d0d0d0);
+  opacity: 1;
+  cursor: default;
+}
+
+.advanced-carousel.story .carousel-navigation-buttons > button:disabled::after {
+  border-color: var(--color-gray-300, #d0d0d0);
+}
+
+/* Pause/play: rounded-square navy-outline button, pushed to the far right. */
+.advanced-carousel.story .carousel-play-pause {
+  margin-inline-start: auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 1.5px solid var(--carousel-ctl);
+}
+
+.advanced-carousel.story .carousel-play-pause.is-playing::before,
+.advanced-carousel.story .carousel-play-pause.is-playing::after {
+  background-color: var(--carousel-ctl);
+  height: 16px;
+}
+
+.advanced-carousel.story .carousel-play-pause:not(.is-playing)::after {
+  border-color: transparent transparent transparent var(--carousel-ctl);
+}
