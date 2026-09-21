@@ -247,6 +247,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        /* Darken lighter product shots so the white overlay text reads. */
+        filter: brightness(0.72) saturate(1.05);
       }
     }
 
