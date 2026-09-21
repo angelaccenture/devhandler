@@ -111,6 +111,94 @@
       margin: 6px;
     }
   }
+
+  /* ── Variant: promo ──────────────────────────────────────────────────────
+     microsoft.com feature teaser — content on the LEFT, product image on the
+     RIGHT sitting on a soft tinted panel. Optional "New" badge (author starts a
+     line with "New"), and a blue filled Shop button.
+     ──────────────────────────────────────────────────────────────────────── */
+  &.promo {
+    --teaser-panel-bg: #e9efe6;
+
+    padding: var(--spacing-l);
+
+    .teaser-inner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+      gap: var(--spacing-xl);
+    }
+
+    /* Image (first in DOM) → explicitly the RIGHT column, row 1. */
+    .teaser-picture-container {
+      grid-column: 2;
+      grid-row: 1;
+      padding-bottom: 0;
+      aspect-ratio: 16 / 11;
+      border-radius: 12px;
+      background: var(--teaser-panel-bg);
+
+      img {
+        object-fit: contain;
+        padding: var(--spacing-l);
+      }
+    }
+
+    /* Content (unclassed cell) → explicitly the LEFT column, row 1. */
+    .teaser-inner > div:not(.teaser-picture-container) {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-s);
+      padding: var(--spacing-xl);
+
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-family: "Segoe UI Variable Display", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--color-headings);
+      }
+
+      p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.45;
+        color: var(--color-gray-600, #444);
+      }
+
+      /* "New" eyebrow badge — bold "New" on its own first line. */
+      p:first-child strong {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: #f2c811;
+        color: #1a1a1a;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* Blue filled Shop button. */
+      .btn {
+        margin-top: var(--spacing-s);
+        padding: 10px 22px;
+        border: 0;
+        border-radius: 4px;
+        background: var(--color-ms-blue-600, #0067b8);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--color-ms-blue-700, #005da6);
+        }
+      }
+    }
+  }
 }
 
 @media (width < 600px) {
