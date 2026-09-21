@@ -180,6 +180,9 @@
   --shop-nav-color: rgb(14 23 38);
 
   padding-block: 24px;
+  max-width: 990px;
+    margin: 0 auto;
+    color: var(--ds-theme-foreground-base-subtle, #17253d);
 }
 
 .columns.shop-nav .row {
