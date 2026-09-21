@@ -53,8 +53,9 @@
     border-bottom: 0;
     border-radius: 999px;
     padding: 8px 20px;
-    font-size: var(--body-font-size-m);
-    color: var(--color-text, currentcolor);
+    font-size: 15px;
+    font-weight: 600;
+    color: #2a446f;
     transition: background-color 0.2s ease, color 0.2s ease;
 
     &.is-active {
