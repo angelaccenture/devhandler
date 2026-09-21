@@ -178,6 +178,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding-bottom: 8px;
+
   /* Room for the staggered lift so nothing clips at the top. */
   padding-top: 24px;
   align-items: start;
