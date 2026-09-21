@@ -271,7 +271,7 @@
 
     &:hover .card-picture-container::after,
     &:focus-within .card-picture-container::after {
-      background: rgb(0 0 0 / 45%);
+      background: rgb(0 0 0 / 60%);
     }
 
     /* Bottom scrim so white text reads; deepens to a near-full dark wash on
