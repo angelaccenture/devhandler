@@ -258,16 +258,16 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgb(0 0 0 / 0%) 45%, rgb(0 0 0 / 78%) 100%);
+      background: linear-gradient(180deg, rgb(0 0 0 / 0%) 40%, rgb(0 0 0 / 85%) 100%);
       z-index: 1;
     }
 
-    /* Decorative chevron bottom-right (matches the live "expand" affordance). */
+    /* Decorative chevron, aligned with the heading row bottom-right. */
     &::after {
       content: "";
       position: absolute;
-      right: 20px;
-      bottom: 92px;
+      right: 22px;
+      bottom: 96px;
       width: 12px;
       height: 12px;
       border-right: 2px solid var(--color-light);
@@ -276,16 +276,19 @@
       z-index: 2;
     }
 
-    .card-content-container,
-    .card-cta-container {
+    /* Stack heading + CTA together at the bottom-left, over the scrim. */
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       position: relative;
       z-index: 2;
+      gap: var(--spacing-s);
+      padding: var(--spacing-l);
     }
 
     .card-content-container {
-      position: absolute;
-      inset: auto 0 0;
-      padding: var(--spacing-l) var(--spacing-l) 0;
+      padding: 0;
 
       h2,
       h3,
@@ -303,8 +306,6 @@
     }
 
     .card-cta-container {
-      position: absolute;
-      inset: auto auto var(--spacing-l) var(--spacing-l);
       padding: 0;
 
       a {
