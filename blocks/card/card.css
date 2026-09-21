@@ -254,7 +254,8 @@
       }
     }
 
-    /* Strong bottom scrim so white text reads on any image (light or dark). */
+    /* Bottom scrim so white text reads; deepens to a near-full dark wash on
+       hover so the revealed description sits on a solid dark panel. */
     &::before {
       content: "";
       position: absolute;
@@ -262,9 +263,16 @@
       background:
         linear-gradient(180deg, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 55%) 62%, rgb(0 0 0 / 92%) 100%);
       z-index: 1;
+      transition: background 0.3s ease;
     }
 
-    /* Decorative chevron, aligned with the heading row bottom-right. */
+    &:hover::before,
+    &:focus-within::before {
+      background: linear-gradient(180deg, rgb(0 0 0 / 55%) 0%, rgb(0 0 0 / 88%) 100%);
+    }
+
+    /* Decorative chevron, aligned with the heading row bottom-right. Rotates
+       to point up on hover, signalling the expanded state. */
     &::after {
       content: "";
       position: absolute;
@@ -275,7 +283,14 @@
       border-right: 2px solid var(--color-light);
       border-bottom: 2px solid var(--color-light);
       transform: rotate(45deg);
+      transform-origin: center;
+      transition: transform 0.3s ease, bottom 0.3s ease;
       z-index: 2;
+    }
+
+    &:hover::after,
+    &:focus-within::after {
+      transform: rotate(225deg);
     }
 
     /* Stack heading + CTA together at the bottom-left, over the scrim. */
@@ -305,9 +320,25 @@
         line-height: 1.15;
       }
 
+      /* Description — hidden by default, revealed on hover/focus. Animates
+         open via max-height + opacity. */
       p {
         margin: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        font-size: var(--body-font-size-s, 0.875rem);
+        line-height: 1.4;
+        transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
       }
+    }
+
+    /* On hover/focus, expand the description paragraph. */
+    &:hover .card-content-container p,
+    &:focus-within .card-content-container p {
+      max-height: 8em;
+      opacity: 1;
+      margin-top: var(--spacing-xs);
     }
 
     .card-cta-container {
