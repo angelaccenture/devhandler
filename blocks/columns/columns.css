@@ -177,7 +177,8 @@
    come from /img/icons and are set per column via nth-child.
    ──────────────────────────────────────────────────────────────────────────── */
 .columns.shop-nav {
-  --shop-nav-color:rgb(0, 66, 117);
+  --shop-nav-color:rgb(0 66 117);
+
   font-size: 14px;
   padding-block: 24px;
   max-width: 990px;
@@ -228,3 +229,43 @@
 .columns.shop-nav .col a:hover {
   text-decoration: none;
 }
+
+/* ── Variant: social ─────────────────────────────────────────────────────────
+   "Follow Microsoft" row — each link becomes a white rounded tile carrying a
+   brand icon (Facebook / X / LinkedIn), centered as a row. Text labels are
+   kept for a11y but visually replaced by the icon.
+   ──────────────────────────────────────────────────────────────────────────── */
+.columns.social .row {
+  justify-content: center;
+  gap: 16px;
+}
+
+.columns.social .col {
+  display: flex;
+  justify-content: center;
+}
+
+.columns.social .col p {
+  margin: 0;
+}
+
+.columns.social .col a {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #fff center / 26px 26px no-repeat;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 8%);
+  font-size: 0;
+  color: transparent;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.columns.social .col a:hover {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+  transform: translateY(-1px);
+}
+
+.columns.social .col-1 a { background-image: url("/img/icons/social-facebook.svg"); }
+.columns.social .col-2 a { background-image: url("/img/icons/social-x.svg"); }
+.columns.social .col-3 a { background-image: url("/img/icons/social-linkedin.svg"); }
