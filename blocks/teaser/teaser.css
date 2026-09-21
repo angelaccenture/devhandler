@@ -111,6 +111,97 @@
       margin: 6px;
     }
   }
+
+  /* ── Variant: promo ──────────────────────────────────────────────────────
+     microsoft.com feature teaser — content on the LEFT, product image on the
+     RIGHT sitting on a soft tinted panel. Optional "New" badge (author starts a
+     line with "New"), and a blue filled Shop button.
+     ──────────────────────────────────────────────────────────────────────── */
+  &.promo {
+    --teaser-panel-bg: #e9efe6;
+
+    padding: var(--spacing-l);
+
+    .teaser-inner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "content image"
+        "cta     image";
+      align-items: center;
+    }
+
+    /* Content left (heading + copy top, CTA below), image right —
+       placed via grid-area regardless of DOM order. */
+    .teaser-content-container {
+      grid-area: content;
+      align-self: end;
+      padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-s);
+      gap: var(--spacing-s);
+
+      h2,
+      h3,
+      h4 {
+        font-family: "Segoe UI Variable Display", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--color-headings);
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.45;
+        color: var(--color-gray-600, #444);
+      }
+
+      /* "New" eyebrow badge — author writes a bold "New" as the first line. */
+      strong:first-child {
+        display: inline-block;
+        margin-bottom: var(--spacing-s);
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: #f2c811;
+        color: #1a1a1a;
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    /* Image on the tinted rounded panel. */
+    .teaser-picture-container {
+      grid-area: image;
+      align-self: stretch;
+      padding-bottom: 0;
+      aspect-ratio: 16 / 11;
+      border-radius: 12px;
+      background: var(--teaser-panel-bg);
+
+      img {
+        object-fit: contain;
+        padding: var(--spacing-l);
+      }
+    }
+
+    /* CTA rendered as a blue filled pill button. */
+    .teaser-cta-container {
+      grid-area: cta;
+      align-self: start;
+      padding: 0 var(--spacing-xl) var(--spacing-xl);
+
+      a {
+        display: inline-block;
+        padding: 10px 22px;
+        border-radius: 4px;
+        background: var(--color-ms-blue-600, #0067b8);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--color-ms-blue-700, #005da6);
+        }
+      }
+    }
+  }
 }
 
 @media (width < 600px) {
