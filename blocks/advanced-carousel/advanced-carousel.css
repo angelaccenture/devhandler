@@ -174,13 +174,14 @@
   grid-auto-flow: column;
   grid-auto-columns: 426px;
   gap: 12px;
+
+  /* Horizontal scroll only — clip the vertical axis so the raised (staggered)
+     cards don't create a vertical scroll region that fights the nav buttons. */
   overflow-x: auto;
+  overflow-y: clip;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  padding-bottom: 8px;
-
-  /* Room for the staggered lift so nothing clips at the top. */
-  padding-top: 24px;
+  padding-block: 24px 8px;
   align-items: start;
 }
 
