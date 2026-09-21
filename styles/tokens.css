@@ -188,8 +188,8 @@
   --color-primary-hover: var(--color-ms-blue-700);
   --color-cta: var(--color-ms-blue-600);
   --color-cta-text: var(--color-light);
-  --color-button-primary: var(--color-ms-navy-deep); /* filled primary button (microsoft.com) */
-  --color-button-primary-hover: #071824;
+  --color-button-primary: var(--color-ms-blue-600); /* filled primary button (microsoft.com blue) */
+  --color-button-primary-hover: var(--color-ms-blue-700);
   --color-focus: var(--color-ms-blue-500);
   --color-border: var(--color-gray-200);
   --color-muted: var(--color-gray-600);
