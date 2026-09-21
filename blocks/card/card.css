@@ -268,7 +268,8 @@
 
     &:hover::before,
     &:focus-within::before {
-      background: linear-gradient(180deg, rgb(0 0 0 / 55%) 0%, rgb(0 0 0 / 88%) 100%);
+      background:
+        linear-gradient(180deg, rgb(0 0 0 / 72%) 0%, rgb(0 0 0 / 82%) 55%, rgb(0 0 0 / 94%) 100%);
     }
 
     /* Decorative chevron, aligned with the heading row bottom-right. Rotates
