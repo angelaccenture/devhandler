@@ -333,6 +333,7 @@ main .section.hero-intro .btn {
   color: var(--color-ms-blue-600);
   font-weight: var(--font-weight-regular, 400);
   background-color: rgb(230, 239, 253);
+  font-size: 15px;
 }
 
 main .section.hero-intro .btn:hover {
