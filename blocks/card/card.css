@@ -230,7 +230,9 @@
     --card-radius: 12px;
 
     position: relative;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
+    min-height: 460px;
+    background: #0b0b0f;
     color: var(--color-light);
 
     .card-picture-container {
@@ -245,15 +247,18 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        /* Darken lighter product shots so the white overlay text reads. */
+        filter: brightness(0.72) saturate(1.05);
       }
     }
 
-    /* Gradient scrim so the overlaid text stays legible. */
+    /* Strong bottom scrim so white text reads on any image (light or dark). */
     &::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgb(0 0 0 / 0%) 40%, rgb(0 0 0 / 85%) 100%);
+      background:
+        linear-gradient(180deg, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 55%) 62%, rgb(0 0 0 / 92%) 100%);
       z-index: 1;
     }
 
