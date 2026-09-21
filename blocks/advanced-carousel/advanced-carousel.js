@@ -96,11 +96,12 @@ function initDeck(el) {
   const currSection = el.closest('.section');
   currSection.classList.add('carousel-deck-section');
 
-  // Collect the following sibling sections until the next carousel/tabs block.
+  // Collect only the immediately-following overlay-card sections. Stop at the
+  // first section that isn't an overlay card so the deck never swallows the
+  // rest of the page (other carousels, columns, teasers, etc.).
   const cards = [];
   let sibling = currSection.nextElementSibling;
-  while (sibling) {
-    if (sibling.querySelector('.advanced-carousel, .advanced-tabs')) break;
+  while (sibling && sibling.querySelector(':scope .card.overlay')) {
     cards.push(sibling);
     sibling = sibling.nextElementSibling;
   }
