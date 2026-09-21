@@ -288,6 +288,10 @@ main .section.hero-intro .default-content {
   align-items: center;
   gap: 28px;
   margin-inline: auto;
+  padding: 40px 0;
+}
+main.section.hero-intro .default-content em {
+  color: #17253d;
 }
 
 main .section.hero-intro h1 {
