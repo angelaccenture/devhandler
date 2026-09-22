@@ -184,18 +184,25 @@
   &.standard {
     --card-radius: 16px;
 
+    width: 373.552px;
+    max-width: 100%;
+    min-height: 517.698px;
     background: #fff;
     padding: 16px;
 
-    /* Override the base grid layout for the standard variant. */
+    /* Flex column filling the card height so the CTA can pin to the bottom. */
     .card-inner {
-      display: inline;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: inherit;
     }
 
     .card-picture-container {
       padding-bottom: 62%;
       border-radius: 14px;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .card-content-container {
@@ -222,8 +229,9 @@
       }
     }
 
-    /* Blue filled CTA button, generous space above it. */
+    /* Blue filled CTA button, pinned to the bottom of the card. */
     .card-cta-container {
+      margin-top: auto;
       padding: 32px 8px 8px;
 
       a {
