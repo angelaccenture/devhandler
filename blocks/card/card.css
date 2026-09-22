@@ -170,36 +170,68 @@
         object-fit: contain;
       }
     }
-    /* Standard variant — small app-style icon (e.g. Word/Excel) instead of a banner
-     image. Icon sits top-left at its natural size, not stretched full-bleed. */
-  &.standard {
-    --card-icon-size: 48px;
-
-    .card-picture-container {
-      position: static;
-      padding: var(--spacing-default) var(--spacing-default) 0;
-      padding-bottom: 0;
-      width: auto;
-
-      picture {
-        position: static;
-        display: block;
-        width: var(--card-icon-size);
-        height: var(--card-icon-size);
-      }
-
-      img {
-        width: var(--card-icon-size);
-        height: var(--card-icon-size);
-        object-fit: contain;
-      }
-    }
-  }
-
 
     /* Content already has its own top padding; tighten the gap under the icon. */
     .card-content-container {
       padding-top: var(--spacing-m);
+    }
+  }
+
+  /* ── Variant: standard ───────────────────────────────────────────────────
+     microsoft.com content card — rounded image on top, bold dark heading,
+     gray body copy, and a blue filled CTA button. White card with soft shadow.
+     ──────────────────────────────────────────────────────────────────────── */
+  &.standard {
+    --card-radius: 16px;
+
+    background: #fff;
+    padding: var(--spacing-s);
+
+    .card-picture-container {
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-content-container {
+      padding: var(--spacing-m) var(--spacing-s) var(--spacing-s);
+
+      h2,
+      h3,
+      h4 {
+        margin: 0 0 var(--spacing-s);
+        font-family: "Segoe UI Variable Display", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--color-headings);
+      }
+
+      p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--color-gray-600, #444);
+      }
+    }
+
+    /* Blue filled CTA button. */
+    .card-cta-container {
+      padding: var(--spacing-m) var(--spacing-s) var(--spacing-s);
+
+      a {
+        padding: 10px 22px;
+        border-radius: 4px;
+        background: var(--color-ms-blue-600, #0067b8);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--color-ms-blue-700, #005da6);
+          text-decoration: none;
+        }
+      }
     }
   }
 
