@@ -235,6 +235,7 @@
    brand icon (Facebook / X / LinkedIn), centered as a row. Text labels are
    kept for a11y but visually replaced by the icon.
    ──────────────────────────────────────────────────────────────────────────── */
+
 /* Space between the "Follow Microsoft" title and the icon row. */
 .columns.social {
   margin-top: 40px;
