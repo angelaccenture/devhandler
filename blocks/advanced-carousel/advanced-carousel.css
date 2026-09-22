@@ -381,6 +381,12 @@
   display: none;
 }
 
+/* Reorder to prev → next (clustered left) → pause (far right), regardless of
+   the DOM order the engine assembles (prev, dots, pause, next). */
+.advanced-carousel.story .slide-prev { order: 1; }
+.advanced-carousel.story .slide-next { order: 2; }
+.advanced-carousel.story .carousel-play-pause { order: 3; }
+
 /* Prev/next: large circular navy-outline buttons. */
 .advanced-carousel.story .carousel-navigation-buttons > button {
   width: 52px;
