@@ -312,10 +312,10 @@ main.section.hero-intro .default-content em {
 main .section.hero-intro h1 {
   margin: 0;
   font-family: "Segoe UI Variable Text", "Segoe UI", segoeui, "Helvetica Neue", helvetica, arial, sans-serif;
-  font-size: 62px;
+  font-size: 48px;
   font-weight: 500;
-  line-height: 72px;
-  letter-spacing: -1.55px;
+  line-height: 56px;
+  letter-spacing: -1.2px;
   color: rgb(14 23 38);
 }
 
